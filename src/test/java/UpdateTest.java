@@ -164,7 +164,7 @@ public class UpdateTest {
         System.out.println("\n==================================================================================================\n");
     }
 
-    //TC-03-48-Melakukan operasi update pada field email dengan data valid
+    //TC-03-50-Melakukan operasi update pada field email dengan data valid
     @Test
     public void testUpdateUserEmailInvalid() {
         System.out.println("\nTest: Melakukan operasi update pada field email dengan data valid\n");
