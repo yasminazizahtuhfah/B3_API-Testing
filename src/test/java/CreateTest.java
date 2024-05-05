@@ -48,7 +48,7 @@ public class CreateTest {
         TestHelper.printPrettyJson(responseBody, statusCode);
 
         // Validate status code
-        Assert.assertEquals(statusCode, 200, "Pembuatan user untuk TC-08 gagal");
+        Assert.assertEquals(statusCode, 200, "Pembuatan user untuk TC-08 gagal\n");
 
         System.out.println("\n==================================================================================================\n");
     }
