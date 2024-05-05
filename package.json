@@ -1,0 +1,22 @@
+{
+  "name": "rest-assured-dummy-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "gradlew test",
+    "start": "java -cp build/classes/java/main org.example.Main",
+    "build": "gradle build",
+    "wrapper": "gradle wrapper"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasminazizahtuhfah/B3_API-Testing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yasminazizahtuhfah/B3_API-Testing/issues"
+  },
+  "homepage": "https://github.com/yasminazizahtuhfah/B3_API-Testing#readme"
+}
