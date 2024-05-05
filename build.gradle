@@ -15,6 +15,9 @@ dependencies {
     testImplementation 'org.testng:testng:7.7.0'
     implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     implementation 'ch.qos.logback:logback-classic:1.2.5'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.9'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.8.9'
+    implementation 'io.vertx:vertx-core:3.5.3'
 }
 
 test {

@@ -4,7 +4,7 @@ import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class createTest {
+public class CreateTest {
 
     @Test
     public void createUser() {
