@@ -4,10 +4,6 @@ import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
 
 
 public class GetTest {
@@ -30,8 +26,7 @@ public class GetTest {
         Assert.assertEquals(statusCode, 403);
 
         String responseBody = response.getBody().asString();
-        TestHelper.printPrettyJson(responseBody);
-
+        TestHelper.printPrettyJson(responseBody, statusCode);
 
         Assert.assertTrue(responseBody.contains("APP_ID_MISSING"));
     }
@@ -46,7 +41,7 @@ public class GetTest {
         Assert.assertEquals(statusCode, 403);
 
         String responseBody = response.getBody().asString();
-        TestHelper.printPrettyJson(responseBody);
+        TestHelper.printPrettyJson(responseBody, statusCode);
 
         Assert.assertTrue(responseBody.contains("APP_ID_NOT_EXIST"));
     }
@@ -60,7 +55,7 @@ public class GetTest {
         int statusCode = response.getStatusCode();
 
         String responseBody = response.getBody().asString();
-        TestHelper.printPrettyJson(responseBody);
+        TestHelper.printPrettyJson(responseBody, statusCode);
 
         Assert.assertEquals(statusCode, 200);
 
@@ -76,7 +71,7 @@ public class GetTest {
         Assert.assertEquals(statusCode, 404);
 
         String responseBody = response.getBody().asString();
-        TestHelper.printPrettyJson(responseBody);
+        TestHelper.printPrettyJson(responseBody, statusCode);
 
         Assert.assertTrue(responseBody.contains("RESOURCE_NOT_FOUND"));
     }
@@ -91,7 +86,7 @@ public class GetTest {
         Assert.assertEquals(statusCode, 400);
 
         String responseBody = response.getBody().asString();
-        TestHelper.printPrettyJson(responseBody);
+        TestHelper.printPrettyJson(responseBody, statusCode);
 
         Assert.assertTrue(responseBody.contains("PARAMS_NOT_VALID"));
     }

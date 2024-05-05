@@ -4,13 +4,15 @@ import java.io.IOException;
 
 public class TestHelper {
 
-    public static void printPrettyJson(String responseBody) {
+    public static void printPrettyJson(String responseBody, int statusCode) {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
             Object json = objectMapper.readValue(responseBody, Object.class);
             String prettyJson = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(json);
+            System.out.println("Status Code: \n" + statusCode);
             System.out.println("Response Body: \n" + prettyJson);
+
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         } catch (IOException e) {
