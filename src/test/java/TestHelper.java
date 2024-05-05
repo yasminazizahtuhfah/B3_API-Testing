@@ -10,8 +10,8 @@ public class TestHelper {
         try {
             Object json = objectMapper.readValue(responseBody, Object.class);
             String prettyJson = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(json);
-            System.out.println("Status Code: \n" + statusCode);
-            System.out.println("Response Body: \n" + prettyJson);
+            System.out.println("Status Code: " + statusCode);
+            System.out.println("Response Body: \n" + prettyJson + "\n");
 
         } catch (JsonProcessingException e) {
             e.printStackTrace();

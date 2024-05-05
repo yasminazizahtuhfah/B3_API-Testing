@@ -19,6 +19,7 @@ public class GetTest {
 
     @Test(description = "Melakukan get user tanpa header app-id", priority = 1)
     public void getUserWithoutAppIdHeader() {
+        System.out.println("Test: getUserWithValidAppIdAndRegisteredId");
         Response response = RestAssured.given()
                 .get("/user/60d0fe4f5311236168a109cf");
 
@@ -27,12 +28,14 @@ public class GetTest {
 
         String responseBody = response.getBody().asString();
         TestHelper.printPrettyJson(responseBody, statusCode);
+        System.out.println("===================================================================================\n");
 
         Assert.assertTrue(responseBody.contains("APP_ID_MISSING"));
     }
 
     @Test(description = "Melakukan get user dengan header app-id invalid", priority = 2)
     public void getUserWithInvalidAppIdHeader() {
+        System.out.println("Test: getUserWithValidAppIdAndRegisteredId");
         Response response = RestAssured.given()
                 .header("app-id", invalidAppId)
                 .get("/user/60d0fe4f5311236168a109cf");
@@ -42,12 +45,14 @@ public class GetTest {
 
         String responseBody = response.getBody().asString();
         TestHelper.printPrettyJson(responseBody, statusCode);
+        System.out.println("===================================================================================\n");
 
         Assert.assertTrue(responseBody.contains("APP_ID_NOT_EXIST"));
     }
 
     @Test(description = "Melakukan get user dengan app-id valid dan id yang terdaftar", priority = 3)
     public void getUserWithValidAppIdAndRegisteredId() {
+        System.out.println("Test: getUserWithValidAppIdAndRegisteredId");
         Response response = RestAssured.given()
                 .header("app-id", validAppId)
                 .get("/user/60d0fe4f5311236168a109cf");
@@ -56,6 +61,7 @@ public class GetTest {
 
         String responseBody = response.getBody().asString();
         TestHelper.printPrettyJson(responseBody, statusCode);
+        System.out.println("===================================================================================\n");
 
         Assert.assertEquals(statusCode, 200);
 
@@ -63,6 +69,7 @@ public class GetTest {
 
     @Test(description = "Melakukan get user dengan app-id valid dan id yang tidak terdaftar", priority = 4)
     public void getUserWithValidAppIdAndUnregisteredId() {
+        System.out.println("Test: getUserWithValidAppIdAndUnregisteredId");
         Response response = RestAssured.given()
                 .header("app-id", validAppId)
                 .get("/user/60d0fe4f5311236168a1dddd");
@@ -72,12 +79,14 @@ public class GetTest {
 
         String responseBody = response.getBody().asString();
         TestHelper.printPrettyJson(responseBody, statusCode);
+        System.out.println("===================================================================================\n");
 
         Assert.assertTrue(responseBody.contains("RESOURCE_NOT_FOUND"));
     }
 
     @Test(description = "Melakukan get user dengan app-id valid dan format id yang tidak sesuai", priority = 5)
     public void getUserWithValidAppIdAndInvalidFormatId() {
+        System.out.println("Test: getUserWithValidAppIdAndInvalidFormatId");
         Response response = RestAssured.given()
                 .header("app-id", validAppId)
                 .get("/user/60d0fe4f53112invalid");
@@ -87,6 +96,7 @@ public class GetTest {
 
         String responseBody = response.getBody().asString();
         TestHelper.printPrettyJson(responseBody, statusCode);
+        System.out.println("===================================================================================\n");
 
         Assert.assertTrue(responseBody.contains("PARAMS_NOT_VALID"));
     }

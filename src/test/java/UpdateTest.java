@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class UpdateTest {
     //TC-03-06-Melakukan operasi update pada field title dengan data valid
-    @Test
+    @Test(description = "Update user title valid", priority = 11)
     public void testUpdateUserTitleValid() {
         System.out.println("\nTest: Melakukan operasi update pada field title dengan data valid\n");
 
@@ -50,7 +50,7 @@ public class UpdateTest {
     }
 
     //TC-03-19-Melakukan operasi update pada field title dengan data invalid (numerik)
-    @Test
+    @Test(description = "Update user title invalid", priority = 12)
     public void testUpdateUserTitleInvalid() {
         System.out.println("\nTest: Melakukan operasi update pada field title dengan data invalid (numerik)\n");
 
@@ -87,7 +87,7 @@ public class UpdateTest {
     }
 
     //TC-03-46-Melakukan operasi update pada field country dengan data invalid (length < 2)
-    @Test
+    @Test(description = "Update user country invalid", priority = 13)
     public void testUpdateUserCountryInvalid() {
         System.out.println("\nTest: Melakukan operasi update pada field country dengan data invalid (length < 2)\n");
 
@@ -128,7 +128,7 @@ public class UpdateTest {
     }
 
     //TC-03-48-Melakukan operasi update pada field gender dengan data invalid (selain dari opsi "male", "female", "other", "")
-    @Test
+    @Test(description = "Update user gender invalid", priority = 14)
     public void testUpdateUserGenderInvalid() {
         System.out.println("\nTest: Melakukan operasi update pada field gender dengan data invalid (selain dari opsi male, female, other, string kosong\n");
 
@@ -165,7 +165,7 @@ public class UpdateTest {
     }
 
     //TC-03-50-Melakukan operasi update pada field email dengan data valid
-    @Test
+    @Test(description = "Update user email valid", priority = 15)
     public void testUpdateUserEmailInvalid() {
         System.out.println("\nTest: Melakukan operasi update pada field email dengan data valid\n");
 
