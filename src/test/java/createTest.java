@@ -14,27 +14,63 @@ public class createTest {
         // Request object (whenever you want to send request to the server)
         RequestSpecification httpRequest = RestAssured.given();
 
-        // Add app-id header
+        // Set request headers
         httpRequest.header("app-id", "662715126cae0331efdee794")
-                // Request payload sending along with post request
-                .body("{\"firstName\":\"Mentari\",\n" +
-                        "\"lastName\":\"Ayu\",\n" +
-                        "\"email\":\"mentariiiiiiiiiiiiiiii@example.com\"}")
-                // Set content type as JSON
                 .contentType("application/json");
 
-        // Response object
-        Response response = httpRequest.post();
+        // Set request body
+        String requestBody = "{\"firstName\":\"Mentari\",\n" +
+                "\"lastName\":\"Ayu\",\n" +
+                "\"email\":\"mentariiiiiiiiiiiiixxiiaiiiiiiiiiiii@example.com\"}";
 
-        // Print response body
-        String responseBody = response.getBody().asString();
-        System.out.println("Response Body: " + responseBody);
+        // Add request body
+        httpRequest.body(requestBody);
+
+        // Send POST request and get response
+        Response response = httpRequest.post();
 
         // Get status code
         int statusCode = response.getStatusCode();
-        System.out.println("Status Code: " + statusCode);
+
+        // Print response body
+        String responseBody = response.getBody().asString();
+        System.out.println("Response Body: \"" + responseBody + "\"");
 
         // Validate status code
-        Assert.assertEquals(statusCode, 200, "Failed to create user. Status code is not as expected.");
+        Assert.assertEquals(statusCode, 200, "User tidak berhasil dibuat");
     }
+    @Test
+    public void createUser2() {
+        // Specify base URI
+        RestAssured.baseURI = "https://dummyapi.io/data/v1/user/create";
+
+        // Request object (whenever you want to send request to the server)
+        RequestSpecification httpRequest = RestAssured.given();
+
+        // Set request headers
+        httpRequest.header("app-id", "662715126cae0331efdee794")
+                .contentType("application/json");
+
+        // Set request body
+        String requestBody = "{\"firstName\":\"Mentari\",\n" +
+                "\"lastName\":\"Ayu\",\n" +
+                "\"email\":\"mentariiiiiiiiiiiaiiiiiiiiiiii@example.com\"}";
+
+        // Add request body
+        httpRequest.body(requestBody);
+
+        // Send POST request and get response
+        Response response = httpRequest.post();
+
+        // Get status code
+        int statusCode = response.getStatusCode();
+
+        // Print response body
+        String responseBody = response.getBody().asString();
+        System.out.println("Response Body: \"" + responseBody + "\"");
+
+        // Validate status code
+        Assert.assertEquals(statusCode, 200, "User tidak berhasil dibuat");
+    }
+
 }
